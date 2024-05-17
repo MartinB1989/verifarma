@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-layout>
-      <v-app-bar color="primary" density="compact">
+      <v-app-bar color="primary" density="compact" class="default-app-bar">
         <v-app-bar-nav-icon
           variant="text"
           @click.stop="drawer = !drawer"
@@ -13,7 +13,7 @@
         </template>
       </v-app-bar>
       <client-only>
-        <v-navigation-drawer v-model="drawer" temporary>
+        <v-navigation-drawer v-model="drawer" temporary class="default-nav">
           <AppMenu />
           <template #append>
             <div class="pa-2">
@@ -78,5 +78,12 @@ const snackbarStore = useSnackbar()
 <style scoped>
 .default__main {
   min-height: 100vh;
+}
+.default-nav,
+.default-app-bar {
+  position: fixed !important;
+}
+.default-nav {
+  height: calc(100vh - 48px) !important;
 }
 </style>

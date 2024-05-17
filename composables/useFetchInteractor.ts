@@ -1,12 +1,8 @@
 import { ref } from 'vue'
-// import { useUserSessionStore } from '~/stores/userSession'
 
 export default function useFetchInteractor() {
   const loading = ref(false)
   const runtimeConfig = useRuntimeConfig()
-  // const userSessionStore = useUserSessionStore()
-  // const accessToken = userSessionStore.token
-  const accessToken = ''
 
   async function fetchData(
     url: string,
@@ -14,37 +10,30 @@ export default function useFetchInteractor() {
     body?: any
   ) {
     loading.value = true
-    let data = null
-    let error = false
+    let response = {}
+    const Error = null
+
     try {
       const headers: HeadersInit = {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': '*',
       }
-      if (accessToken) {
-        headers['Authorization'] = `Bearer ${accessToken}`
-      }
-      const response = await $fetch(`${runtimeConfig.public.apiUrl}${url}`, {
+
+      const res: any = await $fetch(`${runtimeConfig.public.apiUrl}${url}`, {
         method,
         headers,
         body,
       })
-      data = response
+
+      response = res
     } catch (err: any) {
-      console.log('ERROR:', err)
-      error = true
-      if (err.response) {
-        data = err.response._data
-      }
+      response = { Response: 'False', Error: 'Error desconocido' }
     } finally {
       loading.value = false
     }
 
-    return { data, error }
+    return response
   }
 
-  return {
-    loading,
-    fetchData,
-  }
+  return { loading, fetchData }
 }

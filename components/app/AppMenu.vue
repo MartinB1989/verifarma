@@ -33,7 +33,7 @@ import type Menu from '../../types/Menu'
 
 const menu = ref<Menu[]>([
   {
-    title: 'Dashboard',
+    title: 'Home',
     icon: 'mdi-home',
     to: '/',
   },
