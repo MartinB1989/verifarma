@@ -1,0 +1,82 @@
+<template>
+  <v-app>
+    <v-layout>
+      <v-app-bar color="primary" density="compact">
+        <v-app-bar-nav-icon
+          variant="text"
+          @click.stop="drawer = !drawer"
+        ></v-app-bar-nav-icon>
+        <v-app-bar-title>User Name</v-app-bar-title>
+
+        <template #append>
+          <v-btn :icon="themeIcon" @click="toggleTheme"></v-btn>
+        </template>
+      </v-app-bar>
+      <client-only>
+        <v-navigation-drawer v-model="drawer" temporary>
+          <AppMenu />
+          <template #append>
+            <div class="pa-2">
+              <v-btn block color="primary" @click="() => logout()">
+                Cerrar sesión
+              </v-btn>
+            </div>
+          </template>
+        </v-navigation-drawer>
+      </client-only>
+
+      <v-main class="default__main">
+        <div class="pa-8">
+          <slot></slot>
+        </div>
+      </v-main>
+    </v-layout>
+    <v-snackbar
+      v-model="snackbarStore.isOpen"
+      :color="snackbarStore.color"
+      max-width="400px"
+      location="top right"
+    >
+      {{ snackbarStore.text }}
+    </v-snackbar>
+  </v-app>
+</template>
+
+<script setup lang="ts">
+import { useSnackbar } from '~/stores/snackbar'
+import { useAppThemeStore } from '~/stores/appTheme'
+import { useTheme } from 'vuetify'
+
+// const { logout } = useLogin()
+const appTheme = useAppThemeStore()
+const theme = useTheme()
+const drawer = ref(false)
+const router = useRouter()
+
+theme.global.name.value = appTheme.getThemeValue
+
+function toggleTheme() {
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+  appTheme.setTheme(theme.global.name.value)
+}
+
+function logout() {
+  console.log('Cerrando session')
+  router.push('login')
+}
+
+const themeIcon = computed(() => {
+  const themeValue = appTheme.getThemeValue
+  if (themeValue === 'light') {
+    return 'mdi-white-balance-sunny'
+  }
+  return 'mdi-weather-night'
+})
+const snackbarStore = useSnackbar()
+</script>
+
+<style scoped>
+.default__main {
+  min-height: 100vh;
+}
+</style>
