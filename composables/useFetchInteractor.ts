@@ -11,7 +11,6 @@ export default function useFetchInteractor() {
   ) {
     loading.value = true
     let response = {}
-    const Error = null
 
     try {
       const headers: HeadersInit = {
