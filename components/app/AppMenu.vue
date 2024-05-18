@@ -38,16 +38,6 @@ const menu = ref<Menu[]>([
     to: '/',
   },
   // {
-  //   title: 'Acción',
-  //   icon: '',
-  //   to: '/?search=accion',
-  // },
-  // {
-  //   title: 'Fantasia',
-  //   icon: '',
-  //   to: '/?search=accion',
-  // },
-  // {
   //   title: 'Categorias',
   //   icon: 'mdi-shape',
   //   section: 'Categorias',

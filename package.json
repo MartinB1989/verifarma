@@ -7,13 +7,14 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "jest"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
     "@nuxt/eslint-config": "^0.2.0",
-    "@pinia/nuxt": "^0.5.1",
     "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
+    "@pinia/nuxt": "^0.5.1",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "eslint": "^8.56.0",
@@ -27,7 +28,12 @@
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.24.5",
+    "@vue/test-utils": "^2.4.0-alpha.2",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3",
     "vite-plugin-vuetify": "^2.0.3",
+    "vue-jest": "^5.0.0-alpha.10",
     "vuetify": "^3.6.4"
   }
 }
