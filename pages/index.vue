@@ -29,6 +29,8 @@
           v-model="currentPage"
           :length="paginationLength"
           total-visible="5"
+          @prev="searchMovies"
+          @next="searchMovies"
           @update:model-value="searchMovies"
         ></v-pagination>
       </v-col>

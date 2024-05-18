@@ -18,7 +18,7 @@
           <template #append>
             <div class="pa-2">
               <v-btn block color="primary" @click="() => logout()">
-                Cerrar sesión
+                Log out
               </v-btn>
             </div>
           </template>
