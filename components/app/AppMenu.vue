@@ -38,15 +38,26 @@ const menu = ref<Menu[]>([
     to: '/',
   },
   // {
-  //     title: 'Categorias',
-  //     icon: 'mdi-shape',
-  //     section: 'Categorias',
-  //     submenu: [
-  //         {
-  //             title: 'Eventos',
-  //             to: '/categories/events',
-  //         },
-  //     ],
+  //   title: 'Acción',
+  //   icon: '',
+  //   to: '/?search=accion',
+  // },
+  // {
+  //   title: 'Fantasia',
+  //   icon: '',
+  //   to: '/?search=accion',
+  // },
+  // {
+  //   title: 'Categorias',
+  //   icon: 'mdi-shape',
+  //   section: 'Categorias',
+  //   submenu: [
+  //     {
+  //       title: 'Acción',
+  //       icon: '',
+  //       to: '/?search=accion',
+  //     },
+  //   ],
   // },
 ])
 </script>

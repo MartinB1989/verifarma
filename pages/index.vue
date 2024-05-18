@@ -10,8 +10,8 @@
           variant="solo"
           hide-details
           single-line
-          @keyup.enter="searchMovies"
-          @click:append-inner="searchMovies"
+          @keyup.enter="() => searchMovies(1)"
+          @click:append-inner="() => searchMovies(1)"
         ></v-text-field>
       </v-col>
     </v-row>
@@ -24,6 +24,14 @@
       </v-col>
     </v-row>
     <v-row v-else>
+      <v-col v-if="totalPages > 0" cols="12">
+        <v-pagination
+          v-model="currentPage"
+          :length="paginationLength"
+          total-visible="5"
+          @update:model-value="searchMovies"
+        ></v-pagination>
+      </v-col>
       <v-col
         v-for="movie in movies"
         :key="movie.imdbID"
@@ -32,6 +40,14 @@
         md="3"
       >
         <MovieCard :movie="movie" />
+      </v-col>
+      <v-col v-if="totalPages > 0" cols="12">
+        <v-pagination
+          v-model="currentPage"
+          :length="paginationLength"
+          total-visible="5"
+          @update:model-value="searchMovies"
+        ></v-pagination>
       </v-col>
     </v-row>
   </v-container>
@@ -46,6 +62,8 @@ const snackbar = useSnackbar()
 const loading = ref(false)
 const searchKey = ref('')
 const movies = ref<any>([])
+const totalPages = ref(0)
+const currentPage = ref(1)
 const route = useRoute()
 const router = useRouter()
 
@@ -55,12 +73,26 @@ interface ApiResponse {
   Error?: string
 }
 
-const searchMovies = async () => {
+const paginationLength = computed(() => {
+  if (totalPages.value > 0) {
+    return totalPages.value
+  }
+  return 1
+})
+
+const searchMovies = async (page?: number) => {
   loading.value = true
-  const data: ApiResponse = await omdbApi().getMovies(searchKey.value)
+  currentPage.value = page || Number(route.query.page) || 1
+  const data: ApiResponse = await omdbApi().getMovies(
+    searchKey.value,
+    currentPage.value
+  )
   if (data.Response === 'True') {
     movies.value = data.Search
-    router.push({ query: { search: searchKey.value } })
+    totalPages.value = Math.round(
+      Number(data.totalResults) / movies.value.length
+    )
+    router.push({ query: { search: searchKey.value, page: currentPage.value } })
   } else {
     snackbar.showSnackbar('error', data.Error)
     console.error(data.Error)

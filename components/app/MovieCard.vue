@@ -18,10 +18,8 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
-
 const router = useRouter()
-const props = defineProps({
+defineProps({
   movie: {
     type: Object,
     required: true,
@@ -30,7 +28,6 @@ const props = defineProps({
 
 const onClickCard = (id: string) => {
   router.push(`/movie/${id}`)
-  console.log(`Se hizo clic en la película ${props.movie.Title}`)
 }
 </script>
 
