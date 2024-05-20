@@ -1,6 +1,6 @@
 # Proyecto para Verifarma
 
-Sinceramente no creo tener el tiempo esta semana dejar el repositorio mas lindo,tengo mucho trabajo,
+Sinceramente no creo tener el tiempo esta semana dejar el repositorio mejor,tengo mucho trabajo,
 me diverti el finde semana haciendolo, siendo que me toco trabajar me pude hacer un tiempo.
 Por supuesto se podria mejorar, llevo 3 años trabajando con Vue y Nuxt, tengo muchos proyectos
 para mostrar si es necesario.
