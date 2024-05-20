@@ -3,5 +3,12 @@ export default interface Menu {
   icon?: string
   to?: string
   section?: string
-  submenu?: Menu[]
+  submenu?: SubMenu[]
+}
+
+interface SubMenu {
+  title: string
+  icon?: string
+  to?: string
+  section?: string
 }

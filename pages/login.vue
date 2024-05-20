@@ -65,6 +65,7 @@
 
 <script setup lang="ts">
 import { useSnackbar } from '../stores/snackbar'
+import { useUserSessionStore } from '../stores/userSession'
 import { ref } from 'vue'
 // const { loading, login } = useLogin()
 
@@ -73,6 +74,7 @@ definePageMeta({
 })
 
 const snackbar = useSnackbar()
+const userSession = useUserSessionStore()
 const router = useRouter()
 const password = ref('')
 const email = ref('')
@@ -86,19 +88,12 @@ function forgotPassword() {
 }
 
 async function onLogin(email: string, password: string) {
-  console.log('Iniciando session')
   if (email && password) {
+    userSession.$state.token = 'añskhfoimdvmandkfjkañuernfmdnñe'
     router.push('/')
   } else {
     snackbar.showSnackbar('error', 'Debes completar los campos primero')
   }
-  // const { data, error } = await login(email, password)
-  // if (error) {
-  //   const errorMessage =
-  //     data?.message ||
-  //     'Ocurrio un error al intentar iniciar sesión, intentalo nuevamente'
-  //   snackbar.showSnackbar('error', errorMessage)
-  // }
 }
 
 const visible = ref(false)

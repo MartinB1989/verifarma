@@ -45,13 +45,14 @@
 <script setup lang="ts">
 import { useSnackbar } from '~/stores/snackbar'
 import { useAppThemeStore } from '~/stores/appTheme'
+import { useUserSessionStore } from '~/stores/userSession'
 import { useTheme } from 'vuetify'
 
-// const { logout } = useLogin()
 const appTheme = useAppThemeStore()
 const theme = useTheme()
 const drawer = ref(false)
 const router = useRouter()
+const userSession = useUserSessionStore()
 
 theme.global.name.value = appTheme.getThemeValue
 
@@ -61,7 +62,7 @@ function toggleTheme() {
 }
 
 function logout() {
-  console.log('Cerrando session')
+  userSession.$state.token = ''
   router.push('login')
 }
 

@@ -45,7 +45,7 @@ const menu = ref<Menu[]>([
   // {
   //   title: 'Fantasia',
   //   icon: '',
-  //   to: '/?search=accion',
+  //   to: '/?search=fantasia',
   // },
   // {
   //   title: 'Categorias',
