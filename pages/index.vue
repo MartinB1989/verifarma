@@ -73,6 +73,7 @@ interface ApiResponse {
   Response?: string
   Search?: []
   Error?: string
+  totalResults?: string | number
 }
 
 const paginationLength = computed(() => {
