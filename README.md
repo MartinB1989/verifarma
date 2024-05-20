@@ -1,4 +1,4 @@
-# Nuxt 3 Minimal Starter
+# Proyecto para Verifarma
 
 Sinceramente no creo tener el tiempo esta semana dejar el repositorio mas lindo,tengo mucho trabajo,
 me diverti el finde semana haciendolo, siendo que me toco trabajar me pude hacer un tiempo.
