@@ -1,75 +1,57 @@
 # Nuxt 3 Minimal Starter
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Sinceramente no creo tener el tiempo esta semana dejar el repositorio mas lindo,tengo mucho trabajo,
+# me diverti el finde semana haciendolo, siendo que me toco trabajar me pude hacer un tiempo.
+# Por supuesto se podria mejorar, llevo 3 años trabajando con Vue y Nuxt, tengo muchos proyectos
+# para mostrar si es necesario.
+# No pude incluir mas testing, tampoco quiero mentir con eso, tengo conocimiento pero no experiencia en UT y IT
+# pero pude agregar alguna cosita.
 
-## Setup
+# El proyecto es muy simple
 
-Make sure to install the dependencies:
+Clone repositorio de github
 
+git clone https://github.com/MartinB1989/verifarma.git
+
+Asegurece de estar usando una versión compatible de Node
+Recomiendo Node = 20.9.0 que es con la que monte el proyecto
+
+Instale las dependencias
 ```bash
 # npm
 npm install
-
 # pnpm
 pnpm install
-
 # yarn
 yarn install
-
 # bun
 bun install
 ```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+Inicie el servidor en modo desarrollo http://localhost:3000
 
 ```bash
 # npm
 npm run dev
-
 # pnpm
 pnpm run dev
-
 # yarn
 yarn dev
-
 # bun
 bun run dev
 ```
 
-## Production
-
-Build the application for production:
+Para correr test
 
 ```bash
 # npm
-npm run build
-
+npm run test
 # pnpm
-pnpm run build
-
+pnpm run test
 # yarn
-yarn build
-
+yarn test
 # bun
-bun run build
+bun run test
 ```
 
-Locally preview production build:
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Mire [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) para mas información.
