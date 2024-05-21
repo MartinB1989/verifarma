@@ -9,6 +9,10 @@ pero pude agregar alguna cosita.
 
 El proyecto es muy simple
 
+# Para acceder:
+Usuario: cualquier texto
+Contraseña: Cualquier texto
+
 # Clone repositorio de github
 
 git clone https://github.com/MartinB1989/verifarma.git
